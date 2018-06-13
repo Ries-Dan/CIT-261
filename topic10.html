@@ -47,9 +47,11 @@
             var ctx = canvas.getContext("2d");
             ctx.fillStyle = "#FF0000";
 
+            setInterval(draw(rectX,rectY),1000);
             
-            // draw starting canvas
-            ctx.fillRect(rectX,rectY,10,10);
+            function draw(rectX,rectY)
+            {
+            // Determine where to draw rectangle
             for (var i = 0; i < 1500; i++)
                 {
                     // X check
@@ -84,16 +86,11 @@
                             else if (rectY == yMin)
                                 goDown = true;
                         }
-                    
-                    // send to draw
-                    draw(rectX,rectY);
-                }
-            
-            function draw(rectX,rectY)
-            {
+
                     // clean and redraw canvas
                     ctx.clearRect(0,0,200,100);
                     ctx.fillRect(rectX,rectY,10,10); 
+                }
             }
         </script>
     </body>
