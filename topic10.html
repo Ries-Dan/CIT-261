@@ -8,7 +8,7 @@
         <p>A simple demonstration of media tags and an animated canvas</p>
         <h3>Audio</h3>
         <audio controls preload="none">
-                <source src="greeting.wav">
+                <source src="greeting">
         </audio>
         
         <h3>Video</h3>
@@ -50,7 +50,7 @@
             
             // draw starting canvas
             ctx.fillRect(rectX,rectY,10,10);
-            for (var i = 0; i < 100; i++)
+            for (var i = 0; i < 1500; i++)
                 {
                     // X check
                     if (goRight == true)
@@ -87,7 +87,6 @@
                     
                     // send to draw
                     draw(rectX,rectY);
-                    sleep(1);
                 }
             
             function draw(rectX,rectY)
@@ -96,7 +95,6 @@
                     ctx.clearRect(0,0,200,100);
                     ctx.fillRect(rectX,rectY,10,10); 
             }
-            
         </script>
     </body>
 </html>
