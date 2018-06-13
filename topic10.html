@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>HTML5 Tags - Video, Audio, and Canvas</title>
+    </head>
+    <body>
+        <h2>HTML5 Tags - Video, Audio, and Canvas</h2>
+        <p>A simple demonstration of media tags and an animated canvas</p>
+        <h3>Audio</h3>
+        <audio controls>
+            <source src="greeting.wav" type="audio/wave">
+        </audio>
+        
+        <h3>Video</h3>
+        <iframe width="420" height="315"
+                src="https://www.youtube.com/embed/2Z4m4lnjxkY?controls=0">
+        </iframe>
+        
+        <h3>Canvas</h3>
+        <canvas id="demoCanvas" width="200" height="100"
+                style="border:3px solid #000000;">
+        </canvas>
+        
+        <script>
+            // set script variable
+            var demo;
+            
+            // set Canvas coordinate min and max (in pixels)
+            var xMin = 0;
+            var xMax = 190;
+            var yMin = 0;
+            var yMax = 90;
+            
+            // set rectangle coordinate
+            var rectX = 1;
+            var rectY = 1;
+            
+            // set movment flag
+            var goRight = true;
+            var goDown = true;
+            
+            // set rectangle position
+            var pos = [rectX,rectY];
+            
+            // set canvas
+            var canvas = document.getElementById("demoCanvas");
+            var ctx = canvas.getContext("2d");
+            ctx.fillStyle = "#FF0000";
+
+            {
+            // draw starting canvas
+            ctx.fillRect(rectX,rectY,10,10);
+            for (var i = 0; i < 100; i++)
+                {
+                    // X check
+                    if (goRight == true)
+                        {
+                            if (rectX < xMax) 
+                                rectX++;
+                    
+                            else if (rectX == xMax)
+                                goRight = false;
+                        }
+                    else
+                        {
+                            if (rectX > xMin)
+                                rectX--;
+                            else if (rectX == xMin)
+                                goRight = true;
+                        }
+                    
+                    // Y check
+                    if (goDown == true)
+                        {
+                            if (rectY < yMax)
+                                rectY++;
+                            else if (rectY == yMax)
+                                goDown = false;
+                        }
+                    else
+                        {
+                            if (rectY > yMin)
+                                rectY--;
+                            else if (rectY == yMin)
+                                goDown = true;
+                        }
+                    
+                    // clean and redraw canvas
+                    ctx.clearRect(0,0,200,100);
+                    ctx.fillRect(rectX,rectY,10,10);  
+                    
+                    // wait to continue
+                    
+                }
+            }
+        </script>
+    </body>
+</html>
