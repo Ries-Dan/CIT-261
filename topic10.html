@@ -7,12 +7,12 @@
         <h2>HTML5 Tags - Video, Audio, and Canvas</h2>
         <p>A simple demonstration of media tags and an animated canvas</p>
         <h3>Audio</h3>
-        <audio controls>
-            <source src="greeting.wav" type="audio/wave">
+        <audio controls preload="none">
+                <source src="greeting.wav">
         </audio>
         
         <h3>Video</h3>
-        <iframe width="420" height="315"
+        <iframe width="520" height="315"
                 src="https://www.youtube.com/embed/2Z4m4lnjxkY?controls=0">
         </iframe>
         
@@ -47,7 +47,7 @@
             var ctx = canvas.getContext("2d");
             ctx.fillStyle = "#FF0000";
 
-            {
+            
             // draw starting canvas
             ctx.fillRect(rectX,rectY,10,10);
             for (var i = 0; i < 100; i++)
@@ -85,14 +85,18 @@
                                 goDown = true;
                         }
                     
+                    // send to draw
+                    draw(rectX,rectY);
+                    sleep(1);
+                }
+            
+            function draw(rectX,rectY)
+            {
                     // clean and redraw canvas
                     ctx.clearRect(0,0,200,100);
-                    ctx.fillRect(rectX,rectY,10,10);  
-                    
-                    // wait to continue
-                    
-                }
+                    ctx.fillRect(rectX,rectY,10,10); 
             }
+            
         </script>
     </body>
 </html>
