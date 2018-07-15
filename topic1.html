@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
     <head>
@@ -66,4 +67,72 @@
             
         </script>
     </body>
+=======
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Loops, Conditional Statements, Functions, Variables, Parameters, Arrays, Associative Arrays</title>
+    </head>
+    <body>
+        <h2>Loops, Conditional Statements, Functions, Variables, Parameters, Arrays, Associative Arrays</h2>
+        <p>Most of these concepts were covered in CIT 160 to create simple functions and programs. Below are examples of using Javascript for using Java concepts in an HTML format.</p>
+        <h3>Loops</h3>
+        <p>A loop will list all prime numbers of 2 to 100.</p>
+        
+        
+        <script>
+            
+             /********************************************************************************
+             *isPrime(int)
+             *A function to determine if a parameter is a prime number
+             * Input:  int
+             * Output: bool
+             *******************************************************************************/       
+            function isPrime(num)
+            {
+                // for loop starting the counter with '2'
+                for(var i = 2; i < num; i++) 
+                    
+                    // conditional statement. If remainder of num / i is zero, num is not a prime
+                    if(num % i === 0) 
+                        return false;
+                    
+                    // num is prime. return true
+                   return true;
+            }
+ 
+            /********************************************************************************
+             *listPrimes(int)
+             *A function to list all prime numbers from start to given limit
+             * Input:  int
+             * Output: NA
+             *******************************************************************************/  
+            function listPrimes(limit)
+            {
+                // Initialize and declare variables
+                var primes = [];
+                var arraySize = 0;
+                
+                // for loop starting the counter with '2'
+                for (var i = 2; i < limit; i++)
+                    {
+                    
+                    // send 'i' to isPrime to determine if it is a prime number. If true, print the number and itterate the array size.
+                    if (isPrime(i) === true)
+                        {
+                            primes[arraySize] = i;
+                            document.write(primes[arraySize++] + " ");
+                        }
+                    }
+                
+                // Recap results to user
+                document.write("There are " + arraySize + " prime numbers from 2 to " + limit + ".");
+            }
+            
+            // Run function
+            listPrimes(100);
+            
+        </script>
+    </body>
+>>>>>>> 2f1a93155ab4d11fb920a5bc8d414e6f3c79d73d
 </html>
