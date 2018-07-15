@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Manipulating CSS Class Properties Using JavaScript</title>
+        <link rel="stylesheet" type="text/css" href ="style.css">
+    </head>
+    <body>
+        <h2>Manipulating CSS Class Properties Using JavaScript</h2>
+        <p>Let's start with a basic color change. This is driven through HTML.</p>
+        <h3 id="test1">Test 1</h3>
+
+        <button type="button" 
+                onclick="document.getElementById('test1').style.color = 'blue'">
+                Click Me!</button>
+      
+        <p>The next test is driven through a JavaScript method.</p>
+        <h3 id="test2">Test 2</h3>
+        
+        <p>Enter a number less than 25.</p>
+        
+        <form>
+            Number: <input type="number" name="numTest"><br>
+            <input type="submit" value="Submit">
+        </form>
+        
+        <script>
+            function numTest(num) {
+                if (num < 25)
+                    document.getElementById('test2').style.color = "green";
+                else
+                    document.getElementById('test2').style.color = "red";                                           
+            }
+            
+             numTest(document.getElementById("numTest"));
+        </script> 
+    </body>
+</html>

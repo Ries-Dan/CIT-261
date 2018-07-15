@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DOM Manipulation Using createElement, appendChild, insertBefore, removeChild, etc.</title>
+        <link rel="stylesheet" type="text/css" href ="style.css">
+    </head>
+    <body>
+        <h2>Topic 6: DOM Manipulation Using createElement, appendChild, insertBefore, removeChild, etc.</h2>
+        
+        <p id="demo">This will be demonstrated by making a simple list</p>
+        
+        <button name="demoA" type="button" onclick="addToTop()">Add Top</button><br>
+        <button name="demoB" type="button" onclick="addToBot()">Add Bottom</button><br>
+        <button name="demoC" type="button" onclick="removeTop()">Remove Top</button><br>
+        
+        <ul id="demoList">
+            <li>Los Angeles</li>
+            <li>Seattle</li>
+            <li>San Jose</li>
+            <li>Austin</li>
+            <li>Salt Lake City</li>
+        </ul>
+
+        <script>
+            
+            function addToTop() {
+            var list = document.createElement("LI");
+            var cities = ["Sawmills", "Rio Bravo", "Alianza", "Napoleon", "Lovelaceville", "Orem", "Shirleysburg", "Brodnax", "Homestead Valley", "Chehalis", "Santo Domingo", "Stockton", "Clever"];
+            var newCity = document.createTextNode(cities[Math.floor(Math.random() * 12)]);
+            list.appendChild(newCity);
+            
+            document.getElementById("demoList").insertBefore(newCity, document.getElementById("demoList").childNodes[0]);            
+            }
+            
+        function addToBot() {
+            var list = document.createElement("LI");
+            var cities = ["Sawmills", "Rio Bravo", "Alianza", "Napoleon", "Lovelaceville", "Orem", "Shirleysburg", "Brodnax", "Homestead Valley", "Chehalis", "Santo Domingo", "Stockton", "Clever"];
+            var newCity = document.createTextNode(cities[Math.floor(Math.random() * 12)]);
+            list.appendChild(newCity);
+            
+            document.getElementById("demoList").appendChild(list);
+        }
+             
+        function removeTop() {
+            var list = document.getElementById("demoList");
+            list.removeChild(list.childNodes[0]);
+        } 
+            
+        </script> 
+    </body>
+</html>
+

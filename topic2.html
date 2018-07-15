@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Object Creation Functions, Inheritance, Properties, Methods, Instantiation</title>
+        <link rel="stylesheet" type="text/css" href ="style.css">
+    </head>
+    <body>
+        <h2>Object Creation Functions, Inheritance, Properties, Methods, Instantiation</h2>
+        <p>This topic further extends what we reviewed in CIT 160 and 260. For this example, we will make students and courses.</p>
+        <script>
+        
+            /********************************************************************************
+             *Student object
+             *******************************************************************************/  
+            // Create student object
+            var student = new Object();
+            student.firstName = "Default";
+            student.lastName  = "Default";
+            student.id        = 0;
+            
+            // constructor with parameters
+            function Student(firstName, lastName, id) {
+                this.firstName = firstName;
+                this.lastName  = lastName;
+                this.id        = id;
+            }
+            
+            /********************************************************************************
+             *Student getters and setters
+             *******************************************************************************/    
+            student.getFirstName = function() {
+                return this.firstName;
+            };
+            
+            student.setFirstName = function(firstName) {
+                this.firstName = firstName;
+            };
+            
+            student.getLastName = function() {
+                return this.lastName;
+            };
+            
+            student.setLastName = function(lastName) {
+                this.lastName = lastName;
+            };
+            
+            student.getID = function() {
+                return this.id;
+            };
+            
+            student.setID = function(id) {
+                this.id = id;
+            };
+            
+            /********************************************************************************
+             *Student methods
+             *******************************************************************************/  
+            // method to return full name of student
+            student.getName = function() {
+                return this.firstName + " " + this.lastName;
+            };
+            
+            /********************************************************************************
+             *Course Object
+             *******************************************************************************/  
+            var course  = new Object();
+            course.name    = "Default";
+            course.branch  = "Default";
+            course.id      = 0;
+            course.student = student;
+            
+            // constructor with parameters to create new course
+            function Course(name, branch, id) {
+                this.name   = name;
+                this.branch = branch;
+                this.id     = id;
+            }
+            
+            /********************************************************************************
+             *Course getters and setters
+             *******************************************************************************/  
+            course.getName = function() {
+                return this.name;
+            };
+            
+            course.setName = function(name) {
+                this.name = name;
+            };
+            
+            course.getBranch = function() {
+                return this.branch;
+            };
+            
+            course.setBranch = function(branch) {
+                this.branch = branch;
+            };
+            
+            course.getID = function()  {
+                return this.id;
+            };
+            
+            course.setID = function (id) {
+                this.id = id;
+            };
+            
+            course.getStudent = function() {
+                return this.student;
+            };
+            
+            course.setStudent = function(student) {
+                this.student = student;
+            };
+            
+            /********************************************************************************
+             *Course methods
+             *******************************************************************************/  
+            course.getID = function() {
+                return this.branch + " " + this.course.id;
+            };
+        
+            
+            // Define objects of type Student and Course
+            var x = new Student("Dan", "Ries", 8675309);
+            var y = new Course("Mobile Software Development", "CIT", 261, x);
+            
+                       
+            // display
+            document.write(x.firstName + " " + x.lastName + " is enrolled in " + y.branch + " " + y.id + " " + y.name);
+        
+            
+            
+        </script>
+    </body>
+</html>

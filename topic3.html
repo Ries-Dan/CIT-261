@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JSON Parse, Stringify</title>
+        <link rel="stylesheet" type="text/css" href ="style.css">
+    </head>
+    <body>
+        <h2>JSON Parse, Stringify</h2>
+        <p>JSON is used to work with data. Simply put, JSON is text, and is used to covert a JavaScript object into text to be used.</p>
+        <h3>Example</h3>
+            <p>Let's use the student example from the last topic</p>
+            <script>
+                var student = {"firstName":"Dan","lastName":"Ries","id":8675309};
+                document.write(student.firstName + " " + student.lastName + " has ID: " + student.id);
+                var demoJSON = JSON.stringify(student);
+                document.write("<br>")
+                document.write("JSON: " + demoJSON);
+            </script>
+            <p>Likewise, JSON can be used to take data coming from a server as a string, and put it into a JavaScript object through parsing.</p>
+            <script>
+                var newStudent = JSON.parse('{ "firstName":"Dan", "lastName":"Ries", "id":8675309}');
+                document.write(newStudent.firstName + " " + newStudent.lastName + " has ID: " + newStudent.id);
+            </script>
+        
+    </body>
+</html>

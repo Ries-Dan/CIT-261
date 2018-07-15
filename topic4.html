@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Using XMLHTTP Request to Consume a JSON Web Service</title>
+        <link rel="stylesheet" type="text/css" href ="style.css">
+    </head>
+    <body>
+        <h2>Using XMLHTTP Request to Consume a JSON Web Service</h2>
+        <p>This topic further extends on topic 3 regarding JSON. For this example, the data will be fetched from a web server.</p>
+        <script>
+            // Create the XMLHTTP and URL objects
+            var xhttp = new XMLHttpRequest();
+            var url = "www.google.com";
+            xhttp.onreadystatechange = function() {
+            
+            // if good to go, parse the data using JSON into a Javascript Object
+            if (this.readyState == 4 && this.status == 200)
+                {
+                    var jsonobj = JSON.parse(this.responseText);
+                }
+            }
+            
+            xhttp.open("GET",url,true);
+            xhttp.send();
+            
+            document.write(xhttp + " comes from " + url);
+        </script>
+    </body>
+</html>

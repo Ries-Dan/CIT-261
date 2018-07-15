@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Local Storage API, Storing and Retrieving Simple Data, Arrays, Associative Arrays, and Objects</title>
+        <link rel="stylesheet" type="text/css" href ="style.css">
+    </head>
+    <body>
+        <h2>Local Storage API, Storing and Retrieving Simple Data, Arrays, Associative Arrays, and Objects</h2>
+        <p>For this example, input will be entered, stored, retrieved, and manipulated.</p>
+        <p>First, default data will be created into the API.</p>
+        
+       <script>
+            // Create local storage variables and initialize
+            localStorage.setItem("firstName", "John");
+            localStorage.setItem("lastName","Doe");
+            localStorage.setItem("id",8675309);
+            localStorage.setItem("numLogins",0);
+           
+            // Now that default data is entered, load into variables
+           var firstName = localStorage.getItem('firstName');
+           var lastName = localStorage.getItem('lastName');
+           var id = localStorage.getItem('id');
+           var numLogins = localStorage.getItem('numLogins');
+           
+           // Display variables
+           document.write(firstName + " " + lastName + " of ID: " + id + " has logged in " + numLogins + " times.")
+        </script>
+        
+        <p>Now, new data will be entered, and replace the default API.</p>
+        <script>
+            // new data
+            var newFirstName = "Dan";
+            var newLastName = "Ries";
+            var newID = 90210;
+            var numLogins =+ 1;
+            
+            // set the new data in the API
+            localStorage.setItem("firstName", newFirstName);
+            localStorage.setItem("lastName", newLastName);
+            localStorage.setItem("id", newID);
+            localStorage.setItem("numLogins", numLogins);
+            
+            // fetch and display the data
+            document.write(localStorage.getItem("firstName") + " " + localStorage.getItem("lastName") + " of ID: " + localStorage.getItem("id") + " has logged in " + localStorage.getItem("numLogins") + " times.");
+        </script>
+        
+        <p>With the new data, it can be read into a Javascript object, or an array of objects.</p>
+        <script>
+            // create Student object and initialize variables with localStorage values
+            var student = {firstName:localStorage.getItem("firstName"), lastName:localStorage.getItem("lastName"), id:localStorage.getItem("id"), numLogins:localStorage.getItem("numLogins")};
+            
+            // create several students
+            var student2 = {firstName:"Joe", lastName:"Young", id:84621, numLogins:0};
+            var student3 = {firstName:"Jill", lastName:"Pier", id:85962, numLogins:0};
+            var student4 = {firstName:"Jimmy", lastName:"Rondala", id:91052, numLogins:0};
+            
+            // create a roster of students
+            var roster = [student,student2,student3,student4];
+            
+            // store roster in local API
+            localStorage.setItem("roster", roster);
+            
+        
+        </script>
+    </body>
+</html>
